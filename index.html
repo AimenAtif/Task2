@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Scientific Calculator </title>
+</head>
+<body>
+    <div class = "container">
+        <div class="calculator">
+            <input type="text"  placeholder="0" id="output-Screen">
+            <button onclick="eclicked()">Exp</button>
+            <button onclick="cosclicked()">Cos</button>
+            <button onclick="tanclicked()">Tan</button>
+            <button onclick="sinclicked()">Sin</button>
+            <button onclick="powclicked()">x²</button>
+            <button onclick="Display('(')">(</button>
+            <button onclick="Display(')')">)</button>
+            <button onclick="factclicked()">x!</button>
+            <button onclick="rootclicked()">√</button>
+            <button onclick="piclicked()">π</button>
+            <button onclick="log10()">Log10</button>
+            <button onclick="logclicked()">Log</button>
+            <button onclick="Clear()" class="clear">CE</button>
+            <button onclick="Display('%')">%</button>
+            <button onclick="Delete()" class="del">DEL</button>
+            <button onclick="Display('/')">÷</button>
+            <button onclick="Display('7')">7</button>
+            <button onclick="Display('8')">8</button>
+            <button onclick="Display('9')">9</button>
+            <button onclick="Display('*')">×</button>
+            <button onclick="Display('4')">4</button>
+            <button onclick="Display('5')">5</button>
+            <button onclick="Display('6')">6</button>
+            <button onclick="Display('-')">-</button>
+            <button onclick="Display('1')">1</button>
+            <button onclick="Display('2')">2</button>
+            <button onclick="Display('3')">3</button>
+            <button onclick="Display('+')">+</button>
+            <button onclick="Display('.')">.</button>
+            <button onclick="Display('0')">0</button>
+            <button onclick="Display('00')">00</button>
+            <button onclick="Calculate()" class="equal">=</button>
+            
+        </div>
+    </div>
+    <script>
+        let outputScreen=document.getElementById("output-Screen"); 
+        function Display(num)
+        {
+            outputScreen.value += num;
+
+        }
+        function Calculate (){
+            try{
+                outputScreen.value=eval(outputScreen.value);     
+            }
+            catch(err)
+            {
+                alert("Invalid");
+            }
+        }
+        function Clear(){
+            outputScreen.value="";
+
+        }
+        function Delete()
+        {
+            outputScreen.value= outputScreen.value.slice(0,-1);
+
+        }
+        function sinclicked()
+        {
+            outputScreen.value=Math.sin(outputScreen.value);
+        }
+        function tanclicked()
+        {
+            outputScreen.value=Math.tan(outputScreen.value);
+        }
+        function cosclicked()
+        {
+            outputScreen.value=Math.cos(outputScreen.value);
+        }
+        function logclicked()
+        {
+            outputScreen.value=Math.log(outputScreen.value);
+        }
+        function log10()
+        {
+            outputScreen.value=Math.log10(outputScreen.value);
+        }
+        function rootclicked()
+        {
+            outputScreen.value=Math.sqrt(outputScreen.value,2); 
+        }
+        function powclicked()
+        {
+            outputScreen.value=Math.pow(outputScreen.value,2); 
+        }
+        function piclicked()
+        {
+            outputScreen.value=3.14159265359;
+        }
+        function eclicked()
+        {
+            outputScreen.value=2.71828182846;
+        }
+        function factclicked()
+        {
+            var i, num, f;
+            f=1;
+            num=outputScreen.value;
+            for(i=1;i<=num;i++)
+            {
+                f=f*i;
+            }
+            i=i-1;
+
+            outputScreen.value=f;
+        }
+
+        
+
+
+          </script>
+
+    
+</body>
+</html>
